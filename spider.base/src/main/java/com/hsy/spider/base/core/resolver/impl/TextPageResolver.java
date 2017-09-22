@@ -1,6 +1,6 @@
-package com.hsy.spider.base.core.pageprocesser.PreDefine;
+package com.hsy.spider.base.core.resolver.impl;
 
-import com.hsy.spider.base.core.pageprocesser.PageProcessor;
+import com.hsy.spider.base.core.resolver.PageResolver;
 import com.hsy.spider.base.model.Page;
 import org.jsoup.nodes.Document;
 
@@ -16,7 +16,7 @@ import java.util.Map;
  * 2.解析新的 url ，丢进去Page的List  newUrlSeed中。
  *
  */
-public class TextPageProcessor implements PageProcessor {
+public class TextPageResolver implements PageResolver {
 
     /**
      * 解析页面

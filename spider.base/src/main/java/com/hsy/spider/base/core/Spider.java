@@ -1,11 +1,11 @@
 package com.hsy.spider.base.core;
 import com.hsy.spider.base.core.downloader.Downloader;
-import com.hsy.spider.base.core.downloader.PreDefine.HttpClientPoolDownloader;
-import com.hsy.spider.base.core.pageprocesser.PageProcessor;
-import com.hsy.spider.base.core.pageprocesser.PreDefine.TextPageProcessor;
-import com.hsy.spider.base.core.saver.PreDefine.ConsoleSaver;
-import com.hsy.spider.base.core.saver.Saver;
-import com.hsy.spider.base.core.scheduler.PreDefine.QueueScheduler;
+import com.hsy.spider.base.core.downloader.impl.HttpClientPoolDownloader;
+import com.hsy.spider.base.core.resolver.PageResolver;
+import com.hsy.spider.base.core.resolver.impl.TextPageResolver;
+import com.hsy.spider.base.core.storager.impl.ConsoleSaver;
+import com.hsy.spider.base.core.storager.Saver;
+import com.hsy.spider.base.core.scheduler.impl.QueueScheduler;
 import com.hsy.spider.base.core.scheduler.Scheduler;
 import com.hsy.spider.base.model.Page;
 import com.hsy.spider.base.model.RegexRule;
@@ -33,7 +33,7 @@ public class Spider {
 
     private Scheduler scheduler;//调度器
     private Downloader downloader;//下载器
-    private PageProcessor pageProcessor;//页面解析器
+    private PageResolver pageProcessor;//页面解析器
     private Saver saver;//存储器
 
     //新种子的过滤器，只有通过正则的，才会加入到待爬取种子队列
@@ -83,7 +83,7 @@ public class Spider {
         return this;
     }
 
-    public Spider setProcessor(PageProcessor p) {
+    public Spider setProcessor(PageResolver p) {
         this.pageProcessor = p;
         return this;
     }
@@ -134,7 +134,7 @@ public class Spider {
             downloader = new HttpClientPoolDownloader();
         }
         if (pageProcessor == null) {
-            pageProcessor = new TextPageProcessor();
+            pageProcessor = new TextPageResolver();
         }
         if (saver == null) {
             saver = new ConsoleSaver();
@@ -192,8 +192,6 @@ public class Spider {
             _logger.debug("【执行器】线程:[" + Thread.currentThread().getName() + "]正在处理:" + urlSeed.getUrl());
             _logger.info("【执行器】当前线程池已完成:{}   运行中：{}  最大运行:{} 等待队列:{}",
                     pool.getCompletedTaskCount(),pool.getActiveCount(),pool.getPoolSize(),pool.getQueue().size());
-            //整个流程为:
-            // (download下载) ->  (pageProcessor解析处理) ->  (save存储)
 
             //下载器-下载指定页面
             Page nowPage = downloader.download(urlSeed);

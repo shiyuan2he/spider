@@ -1,4 +1,4 @@
-package com.hsy.spider.base.core.saver;
+package com.hsy.spider.base.core.storager;
 
 import com.hsy.spider.base.model.Page;
 

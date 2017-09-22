@@ -1,4 +1,4 @@
-package com.hsy.spider.base.core.pageprocesser;
+package com.hsy.spider.base.core.resolver;
 
 import com.hsy.spider.base.model.Page;
 
@@ -19,7 +19,7 @@ import com.hsy.spider.base.model.Page;
  * @github https://github.com/shiyuan2he.git
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
-public interface PageProcessor {
+public interface PageResolver {
 
     /**
      * 解析页面

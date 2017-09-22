@@ -1,4 +1,4 @@
-package com.hsy.spider.base.core.downloader.PreDefine;
+package com.hsy.spider.base.core.downloader.impl;
 
 import com.hsy.spider.base.core.downloader.Downloader;
 import com.hsy.spider.base.model.Page;

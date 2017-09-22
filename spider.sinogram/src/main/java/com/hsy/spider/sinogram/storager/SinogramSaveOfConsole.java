@@ -1,5 +1,5 @@
-package com.hsy.spider.sinogram.storage;
-import com.hsy.spider.base.core.saver.Saver;
+package com.hsy.spider.sinogram.storager;
+import com.hsy.spider.base.core.storager.Saver;
 import com.hsy.spider.base.model.Page;
 
 import java.util.Map;

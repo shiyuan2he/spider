@@ -1,5 +1,5 @@
-package com.hsy.spider.sinogram.storage;
-import com.hsy.spider.base.core.saver.Saver;
+package com.hsy.spider.sinogram.storager;
+import com.hsy.spider.base.core.storager.Saver;
 import com.hsy.spider.base.model.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
-import java.util.Map;
 
 public class SinogramSaveOfFile implements Saver {
     private final Logger _logger = LoggerFactory.getLogger(this.getClass());

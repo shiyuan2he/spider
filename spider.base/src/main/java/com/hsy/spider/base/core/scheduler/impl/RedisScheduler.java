@@ -1,4 +1,4 @@
-package com.hsy.spider.base.core.scheduler.PreDefine;
+package com.hsy.spider.base.core.scheduler.impl;
 import com.google.gson.Gson;
 import com.hsy.spider.base.core.scheduler.Scheduler;
 import com.hsy.spider.base.model.UrlSeed;

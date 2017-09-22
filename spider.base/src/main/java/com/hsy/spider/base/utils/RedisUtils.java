@@ -14,8 +14,6 @@ import redis.clients.jedis.JedisPoolConfig;
 public class RedisUtils {
 
     private static Logger logger = LoggerFactory.getLogger(RedisUtils.class);
-
-
     //Redis服务器IP
     private static String ADDR = "127.0.0.1";
     //Redis的端口号

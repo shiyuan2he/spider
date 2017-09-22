@@ -1,8 +1,10 @@
 package com.hsy.spider.sinogram.starter;
 
 import com.hsy.spider.base.core.Spider;
-import com.hsy.spider.sinogram.resolver.SinogramPageProcessor;
-import com.hsy.spider.sinogram.storage.SinogramSaveOfConsole;
+import com.hsy.spider.sinogram.resolver.SinogramPageResolver;
+import com.hsy.spider.sinogram.storager.SinogramSaveOfConsole;
+import com.hsy.spider.sinogram.storager.SinogramSaverOfRabbitmq;
+
 /**
  * @description <p>汉字爬虫启动器</p>
  * @author heshiyuan
@@ -13,12 +15,12 @@ import com.hsy.spider.sinogram.storage.SinogramSaveOfConsole;
  */
 public class SinogramSpider {
 
-    public static final String url = "https://read.douban.com/" ;
+    public static final String url = "https://read.douban.com" ;
     public static final String regexRule = "+http://.*.jianshu.com/.*";
     public static void main(String[] args) {
         Spider.build()
-                .setSaver(new SinogramSaveOfConsole())
-                .setProcessor(new SinogramPageProcessor())
+                .setSaver(new SinogramSaverOfRabbitmq())
+                .setProcessor(new SinogramPageResolver())
                 .thread(5)
                 .addUrlSeed(url)
                 //.addRegexRule(regexRule)

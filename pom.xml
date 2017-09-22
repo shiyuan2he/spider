@@ -27,10 +27,11 @@
         <!--tool-->
         <version.gson>2.8.0</version.gson>
         <version.httpclient>4.5.3</version.httpclient>
+        <version.jsoup>1.10.2</version.jsoup>
+        <version.rabbitmq>4.2.1</version.rabbitmq>
 
         <!--jedis-->
         <version.jedis>2.9.0</version.jedis>
-        <version.jsoup>1.10.2</version.jsoup>
 
         <!--build start-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -70,10 +71,16 @@
                 <version>${version.gson}</version>
             </dependency>
             <dependency>
-            <groupId>com.hsy.spider</groupId>
-            <artifactId>spider.base</artifactId>
-            <version>${version.hsy.spider}</version>
-        </dependency>
+                <groupId>com.hsy.spider</groupId>
+                <artifactId>spider.base</artifactId>
+                <version>${version.hsy.spider}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rabbitmq</groupId>
+                <artifactId>amqp-client</artifactId>
+                <version>${version.rabbitmq}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>
