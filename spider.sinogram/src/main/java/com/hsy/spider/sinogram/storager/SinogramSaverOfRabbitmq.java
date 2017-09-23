@@ -21,7 +21,7 @@ public class SinogramSaverOfRabbitmq implements Saver{
 
     @Override
     public Page save(Page page) {
-        _logger.info("【存储器】存储内容\n{}");
+        _logger.info("【存储器】存储内容\n{}",page.getItems().toString());
         Map<Object, Object> map = page.getItems();
         map.forEach((k, v) -> RabbitmqProducer.getProducer(v));
         return page;
